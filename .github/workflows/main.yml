@@ -20,7 +20,8 @@ jobs:
     name: Detect Biased Language
     steps:
       - uses: actions/checkout@v2
-      - uses: splunk/pink-panther@master
+      - id: pink-panther
+        uses: splunk/pink-panther@main
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           path: $GITHUB_WORKSPACE
