@@ -17,7 +17,7 @@ on:
 jobs:
   biased_lang:
     runs-on: ubuntu-latest
-    name: Detect Biased Language
+    name: Detecting Biased Language
     steps:
       - uses: actions/checkout@v2
       - id: pink-panther
