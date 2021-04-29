@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: pink-panther
-        uses: splunk/pink-panther@main
+        uses: splunk/pink-panther-test@main
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           path: $GITHUB_WORKSPACE
