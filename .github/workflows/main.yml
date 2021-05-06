@@ -25,6 +25,6 @@ jobs:
         uses: splunk/pink-panther@test
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          path: $GITHUB_WORKSPACE
-          url: $GITHUB_SERVER_URL
-          repo: $GITHUB_REPOSITORY
+#           path: $GITHUB_WORKSPACE
+#           url: $GITHUB_SERVER_URL
+#           repo: $GITHUB_REPOSITORY
