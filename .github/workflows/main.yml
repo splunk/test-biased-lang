@@ -24,8 +24,8 @@ jobs:
       - id: pink-panther
         uses: splunk/pink-panther@test
         continue-on-error: true
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
+#         with:
+#           token: ${{secrets.GITHUB_TOKEN}}
 #           path: $GITHUB_WORKSPACE
 #           url: $GITHUB_SERVER_URL
 #           repo: $GITHUB_REPOSITORY
