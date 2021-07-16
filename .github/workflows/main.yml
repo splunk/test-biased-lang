@@ -14,12 +14,12 @@ on:
   workflow_dispatch:
   repository_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   biased_lang:
     runs-on: ubuntu-latest
     name: Detecting Biased Language
     steps:
-      - uses: actions/checkout@v2
-      - uses: splunk/biased_lang@test
-        continue-on-error: true
+      - run: |
+          echo "${{ inputs.token }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker pull ghcr.io/splunk/biased_lang:test
+          docker run -v ${{inputs.path}}:/biased_lang -e GITHUB_URL=${{inputs.url}} -e GITHUB_REPO=${{inputs.repo}} ghcr.io/splunk/biased_lang:test
