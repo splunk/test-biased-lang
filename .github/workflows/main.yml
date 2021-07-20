@@ -9,12 +9,21 @@ on:
   repository_dispatch:
 
 jobs:
+#   biased_lang:
+#     runs-on: ubuntu-latest
+#     name: Detecting Biased Language
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: |
+#           echo $GITHUB_WORKSPACE
+#           docker pull ghcr.io/splunk/biased_lang:test
+#           docker run -v $GITHUB_WORKSPACE:/biased_lang -e GITHUB_URL=$GITHUB_SERVER_URL -e GITHUB_REPO=$GITHUB_REPOSITORY ghcr.io/splunk/biased_lang:test
   biased_lang:
     runs-on: ubuntu-latest
     name: Detecting Biased Language
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          echo $GITHUB_WORKSPACE
-          docker pull ghcr.io/splunk/biased_lang:test
-          docker run -v $GITHUB_WORKSPACE:/biased_lang -e GITHUB_URL=$GITHUB_SERVER_URL -e GITHUB_REPO=$GITHUB_REPOSITORY ghcr.io/splunk/biased_lang:test
+      - id: biased-lang-linter
+        uses: splunk/biased-lang-linter@main
+        continue-on-error: true
+
